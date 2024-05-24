@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+<style>
+    .container{
+    padding-left:200px;
+    }
+</style>
+</head>
+<body>
+<h1 style="text-align:center;padding-right:100px;">ADMIN LOGIN</h1>
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <div class="container" style="border:4px solid; width:5%; padding-right:700px;"><br>
+        <div class="container" style="font-size:20px;">
+  <label for="" style="font-size:27px; color:blue; ">Username </label>
+  <input type="text" name="username" placeholder="Enter the username"></br>
+          </div>
+
+        <div class="container" style="font-size:20px;">
+
+    <label for=""style="font-size:27px; color:blue; ">Password </label>
+  <input type="password" name="password" placeholder="Enter the password">
+          </div>
+             <div class="container"  style="padding-top:30px;">
+
+    <input type="submit" class="btn btn-danger" value="login" style="background-color:red;" >
+      </div>
+      </div>
+</form>
+{% block content %}
+{% endblock %}
+
+
+
+</body>
+</html>

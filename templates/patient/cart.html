@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+
+  <h2 style="text-align: center;">Payment Section</h2><br>
+    {% if not cart_items %}
+    <h2 style="text-align: center; background-color: aliceblue;">No persons Yet!!!</h2>
+    {% else %}
+
+    <table class="table table-dark table-striped">
+
+            <thead>
+              <tr>
+                <th scope="col">Sl.No</th>
+                <th scope="col"> Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">No Of Persons</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{item.New.Name}}</td>
+                <td>{{item.New.phone}}</td>
+                <td>{{item.New.email}}</td>
+                <td>{{item.New.persons}}</td>
+
+
+
+              </tr>
+              {% endfor %}
+            </tbody>
+
+      </table>
+
+
+      <form action="{% url 'create-checkout-session' %}" method="post">
+        {% csrf_token %}
+
+      <div class="card" style="width: 18rem; background-color: aliceblue;">
+      <div class="card-body">
+        <h5 class="card-title">Total appoinments : {{total_items}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Total price : Rs. {{total_price}}</h6>
+        <button type="submit" href="#" class="btn btn-outline-danger">Check out</button>
+      </div>
+      </div>
+    </form>
+    {% endif %}
+    </div>
+</body>
+</html>
+

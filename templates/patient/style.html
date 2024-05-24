@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Project</title>
+  <style>
+  *{
+  margin:0;
+  padding-top:20px;
+  box-sizing:border-box;
+  font-family:'poppins','sanf-serif';
+  }
+  body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-size:cover;
+  padding-right:100px;
+  background-color:#000;
+
+
+  }
+    .login-box{
+    position:relative;
+    width:550px;
+    height:310px;
+    background:red;
+    border:2px solid rgba(255,255,255,.5);
+    border-radius:20px;
+    justify-content:center;
+    align-items:center;
+    backdrop-filter:blur(15px);
+    padding-top:100px;
+    }
+    h2{
+    font-size:2rem;
+    }
+    button{
+    width:100%;
+    height:50px;
+    padding-top:20px;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:25px;
+    }
+
+
+  </style>
+
+</head>
+<body>
+<div class="login-box">
+  <form action="{% url 'register' %}" >
+    {% csrf_token %}
+      <h2 style="color:white;padding-left:90px;padding-top:0px; font-size:40px;">You can register here</h2>
+      <br><br><br><br><br><br>
+      <button  type="submit">Register</button>
+
+  </form>
+    {% block content %}
+{% endblock %}
+
+
+</div>
+</body>
+</html>
